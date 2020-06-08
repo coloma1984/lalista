@@ -1,0 +1,35 @@
+<br>
+<h1 class = "titleMisListas">
+  Estas son mis listas
+</h1>
+<br>
+
+<div class= "chooseList" style = "font-weight: bold;">
+  Elige la lista:
+<button mat-fab color="accent" style = "font-size: 20px;" (click) = activar()>Go!</button>
+</div>
+<br>
+
+<div class = "addToList">
+<form (submit)="addElement(newElement)">Añadir a la lista: 
+  <input type="text" #newElement name="newElement" [(ngModel)] ="new">
+  <button (click) ="clearNew()">
+    Send
+  </button>
+</form>
+</div>
+<br>
+
+<ul *ngIf ="activated">
+  <li *ngFor="let elemento of elementos; let i = index; trackBy: tracked" >
+    <div><button mat-raised-button color="primary" id="ingButton" type="button" (click) = "whenClicked[i]=!whenClicked[i]" [ngClass]="whenClicked[i] ? 'red' : 'green'" >
+    {{i+1}} {{elemento}} </button><button class="deleteButton" mat-fab color="warn" aria-label="Example icon button with a delete icon" (click) = "whenClicked[i]=true; deleteElement(elemento)"><mat-icon>delete</mat-icon></button></div>
+  </li>
+</ul>
+{{new}}
+<br>
+<!--; changeColor(elemento)
+<button type="button" mdbBtn color="info" mdbWavesEffect>Info</button>
+
+
+[ngClass]="{'green' : toggle, 'red': !toggle}"-->
