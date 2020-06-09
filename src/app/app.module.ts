@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './material.module';
-import { ListaCompraComponent } from './lista-compra/lista-compra.component'
+import { ListaCompraComponent } from './lista-compra/lista-compra.component';
+import { MaterialExampleComponent } from './material-example/material-example.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaCompraComponent
+    ListaCompraComponent,
+    MaterialExampleComponent
   ],
   imports: [
     BrowserModule,
