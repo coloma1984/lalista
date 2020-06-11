@@ -20,16 +20,16 @@ export class ListaCompraComponent implements OnInit {
   buttonStatus = 'Enable';
 
   constructor() { 
-    this.elementos = ['Tomate', 'Lechuga', 'Cebolla', 'Manzana', 'Plátano', 'Frutos Secos', 'Pan', 'Agua', 'Leche', 'Vino', 'Cerveza'];
+    this.elementos = [];
     this.activated = false;
   }
 
   defList(){
+    this.elementos = ['Tomate', 'Lechuga', 'Cebolla', 'Manzana', 'Plátano', 'Frutos Secos', 'Pan', 'Agua', 'Leche', 'Vino', 'Cerveza'];
     this.activated = true;
   }
 
   activar(){
-    this.elementos = [];
     this.activated = true;
   }
 
