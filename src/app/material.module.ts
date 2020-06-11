@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule }from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -14,14 +16,18 @@ import { MatIconModule } from '@angular/material/icon';
     MatCheckboxModule,
     MatDividerModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatGridListModule
   ],
   exports:[
     MatButtonModule,
     MatCheckboxModule,
     MatDividerModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }

@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lalista-ng';
+
+  constructor() { 
+
+  }
+
+  reloadPage(): void{
+    window.location.reload();
+  }
+
 }
+
+
