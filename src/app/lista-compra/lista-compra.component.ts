@@ -21,7 +21,6 @@ export class ListaCompraComponent implements OnInit {
   @Input() deviceSm: boolean;
   @Input() deviceMd: boolean;
 
-
   buttonStatus = 'Enable';
 
   constructor() { 
