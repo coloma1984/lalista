@@ -1,14 +1,21 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>La Lista de la Compra de Almudena y Fernando</span>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">favorite</mat-icon>
+<div style="height:100%">
+<mat-toolbar style="height:100%" color="primary">
+  <mat-toolbar-row class="toolbar-row">
+    <span>La Lista</span>
     <span class="example-spacer"></span>
     <button mat-button (clic)= reloadPage()><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></button>
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
-<br>
-<app-lista-compra></app-lista-compra>
+<mat-divider></mat-divider>
+<mat-toolbar class="toolbar-mini" color="primary">
+  <mat-toolbar-row class="toolbar-row-mini">
+    <span>Lista de la Compra de Almudena y Fernando</span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">favorite</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+</div>
+<app-lista-compra [deviceXs]="deviceXs" [deviceSm]="deviceSm" [deviceMd]="deviceMd"></app-lista-compra>
 <br>
 <!--<app-material-example></app-material-example>-->
 

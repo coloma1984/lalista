@@ -1,17 +1,5 @@
+<br *ngIf="deviceXs === false">
 
-
-<!--<div class = "addToList">
-<mat-form-field class="example-form-field" (submit)="addElement(newElement)">
-  <mat-label>Añadir a la lista: </mat-label>
-  <input matInput type="text" #newElement name="newElement" [(ngModel)] ="new" (click) = activar()>
-  <button mat-button *ngIf="new" matSuffix mat-icon-button aria-label="Clear" (click)="new=''">
-    <mat-icon>close</mat-icon>
-  </button>
- <button (click) ="clearNew()">
-    Send
-  </button>
-</mat-form-field>
-</div>-->
 <div id=headLists style = "margin: 10px 20px 0px 15px;">
 <div id="wrapper" style="clear: both;">
   <span>      </span>
@@ -19,59 +7,34 @@
   <mat-form-field  class="example-form-field">
     <mat-label>Añadir a la lista: </mat-label>
       <form (submit)="addElement(newElement)">
-        <input  matInput type="text" maxlength="12" #newElement name="newElement" [(ngModel)] ="new" (click) = activar()>
+        <input matInput type="text" maxlength="10" #newElement name="newElement" [(ngModel)] ="new" (click) = activar()>
       </form>
   </mat-form-field>
   <button mat-button *ngIf="new" matSuffix mat-icon-button aria-label="Clear" (click)="new=''">
     <mat-icon>close</mat-icon>
   </button>
 </div>
-<div id= "defList">Lista Predeterminada 
-  <button mat-fab color="accent" style = "font-size: 20px;" (click) = defList()>Go!</button>
+<div *ngIf="deviceXs === false" id= "defList">Lista Predeterminada 
+  <button id="go" mat-fab color="accent" style = "font-size: 20px;" (click) = defList()>Go!</button>
 </div>
 </div>
 </div>
 
-<br>
-
-<!--<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-
-</mat-grid-list>-->
-
-<!--<ul *ngIf ="activated">
-  <li *ngFor="let elemento of elementos; let i = index; trackBy: tracked" >
-    <mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile color="primary" id="ingButton" type="button" (click) = "whenClicked[i]=!whenClicked[i]" [ngClass]="whenClicked[i] ? 'green' : 'primary'" >
-    {{i+1}} {{elemento}} 
-    <button  mat-button matSuffix mat-icon-button  (click) = "whenClicked[i]=false; deleteElement(elemento)">
-      <mat-icon>close</mat-icon>
-    </button></mat-grid-tile>
-    <button class="deleteButton" mat-fab color="warn" aria-label="Example icon button with a delete icon" (click) = "whenClicked[i]=true; deleteElement(elemento)"><mat-icon>delete</mat-icon></button>
-  
-</mat-grid-list>
-
-  </li>
-</ul>-->
+<div *ngIf="deviceXs">
+  <mat-icon id="defHeart" color="accent" (click) = defList()>favorite</mat-icon>
+</div>
+<br *ngIf="deviceXs === false">
 
 <div id="wrapper" style="clear: both;">
 <ul *ngIf ="activated">
   <li *ngFor="let elemento of elementos; let i = index; trackBy: tracked" >
-    <div><button mat-raised-button color="primary" id="ingButton" type="button" (click) = "whenClicked[i]=!whenClicked[i]" [ngClass]="whenClicked[i] ? 'green' : 'accent'" >
-    {{i+1}} {{elemento}} 
+    <div><button mat-raised-button color="primary" id="elementButton" type="button" (click) = "whenClicked[i]=!whenClicked[i]" [ngClass]="whenClicked[i] ? 'green' : 'accent'" >
+    <!--{{i+1}} -->{{elemento}} 
     <button  mat-button matSuffix mat-icon-button  (click) = "whenClicked[i]=false; deleteElement(elemento)">
       <mat-icon>close</mat-icon>
     </button></button>
-    <!--<button class="deleteButton" mat-fab color="warn" aria-label="Example icon button with a delete icon" (click) = "whenClicked[i]=true; deleteElement(elemento)"><mat-icon>delete</mat-icon></button>-->
   </div>
   </li>
 </ul>
 </div>
-{{new}}
 <br>
-<!--; changeColor(elemento)
-<button type="button" mdbBtn color="info" mdbWavesEffect>Info</button>
-
-
-[ngClass]="{'green' : toggle, 'red': !toggle}"-->

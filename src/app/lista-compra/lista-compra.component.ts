@@ -17,6 +17,11 @@ export class ListaCompraComponent implements OnInit {
   router: Router;
   toggle: boolean = true;
 
+  @Input() deviceXs: boolean;
+  @Input() deviceSm: boolean;
+  @Input() deviceMd: boolean;
+
+
   buttonStatus = 'Enable';
 
   constructor() { 
