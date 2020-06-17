@@ -16,6 +16,7 @@ export class ListaCompraComponent implements OnInit {
   activated: boolean = true;
   router: Router;
   toggle: boolean = true;
+  spliced: boolean = false;
 
   @Input() deviceXs: boolean;
   @Input() deviceSm: boolean;
@@ -53,10 +54,17 @@ export class ListaCompraComponent implements OnInit {
     for(let i=0; i< this.elementos.length; i++) {
       if(elemento == this.elementos[i]){
         this.elementos.splice(i,1);
+        this.spliced = true;
+      }
+      if (this.spliced == true){
+        this.whenClicked[i] = this.whenClicked[i+1];
+        if (i == this.elementos.length -1){
+          this.spliced = false;
+        }
       }
     };
   }
-
+/*
   changeColor(elemento){
     console.log("Se ha añadido "+elemento+" a la cesta");
     for(let i=0; i< this.elementos.length; i++) {
@@ -67,7 +75,7 @@ export class ListaCompraComponent implements OnInit {
     };
     //this.buttonStatus = this.toggle ? 'Enable' : 'Disable';
   }
-
+*/
   whenClicked = [false,false];
 
   tracked(item, index){
