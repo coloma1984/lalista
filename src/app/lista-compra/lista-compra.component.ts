@@ -57,7 +57,7 @@ export class ListaCompraComponent implements OnInit {
         this.spliced = true;
       }
       if (this.spliced == true){
-        this.whenClicked[i] = this.whenClicked[i+1];
+        this.whenClicked[i+1] = this.whenClicked[i+2];
         if (i == this.elementos.length -1){
           this.spliced = false;
         }
