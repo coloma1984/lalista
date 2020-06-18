@@ -32,6 +32,7 @@ export class ListaCompraComponent implements OnInit {
   defList(){
     this.elementos = ['Tomate', 'Lechuga', 'Cebolla', 'Manzana', 'Plátano', 'Frutos Secos', 'Pan', 'Agua', 'Leche', 'Vino', 'Cerveza'];
     this.activated = true;
+    this.whenClicked = [false,false];
   }
 
   activar(){
@@ -42,14 +43,18 @@ export class ListaCompraComponent implements OnInit {
   }
 
   addElement(elemento){
+    if (elemento.value != ''){
     this.elementos.push(elemento.value);
     console.log("Se ha introducido el elemento: "+ elemento.value);
     elemento.value = '';
     this.new ='';
     elemento.focus();
+    this.whenClicked[this.elementos.length -1] = false;
     return false;
+    }
   }
   deleteElement(elemento){
+    this.spliced = false;
     console.log("Se ha eliminado el elemento: "+ elemento.value);
     for(let i=0; i< this.elementos.length; i++) {
       if(elemento == this.elementos[i]){
@@ -57,25 +62,14 @@ export class ListaCompraComponent implements OnInit {
         this.spliced = true;
       }
       if (this.spliced == true){
-        this.whenClicked[i+1] = this.whenClicked[i+2];
+        this.whenClicked[i] = this.whenClicked[i+1];
         if (i == this.elementos.length -1){
           this.spliced = false;
         }
       }
     };
   }
-/*
-  changeColor(elemento){
-    console.log("Se ha añadido "+elemento+" a la cesta");
-    for(let i=0; i< this.elementos.length; i++) {
-      if(elemento == this.elementos[i]){
-        console.log("El elemento num "+i+" que es "+elemento+" se ha toggleado");
-        this.toggle = !this.toggle;
-      }
-    };
-    //this.buttonStatus = this.toggle ? 'Enable' : 'Disable';
-  }
-*/
+
   whenClicked = [false,false];
 
   tracked(item, index){
