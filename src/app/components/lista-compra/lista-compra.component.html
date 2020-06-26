@@ -1,4 +1,4 @@
-<br *ngIf="deviceXs === false">
+<br *ngIf="isMobile === false">
 
 <div id=headLists style = "margin: 10px 20px 0px 15px;">
 <div id="wrapper" style="clear: both;">
@@ -14,16 +14,16 @@
     <mat-icon>close</mat-icon>
   </button>
 </div>
-<div *ngIf="deviceXs === false" id= "defList">Lista Predeterminada 
+<div *ngIf="isMobile === false" id= "defList">Lista Predeterminada 
   <button id="go" mat-fab color="accent" style = "font-size: 20px;" (click) = defList()>Go!</button>
 </div>
 </div>
 </div>
 
-<div *ngIf="deviceXs">
+<div *ngIf="isMobile === true">
   <mat-icon id="defHeart" color="accent" (click) = defList()>favorite</mat-icon>
 </div>
-<br *ngIf="deviceXs === false">
+<br *ngIf="isMobile === false">
 
 <div id="wrapper" style="clear: both;">
 <ul *ngIf ="activated">

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Router} from '@angular/router';
+import { ApplicationStateService } from '../../services/application-state-service.service'
 
 
 @Component({
@@ -18,21 +19,36 @@ export class ListaCompraComponent implements OnInit {
   toggle: boolean = true;
   spliced: boolean = false;
 
-  @Input() deviceXs: boolean;
-  @Input() deviceSm: boolean;
-  @Input() deviceMd: boolean;
+  deviceResolution: String = '';
+
+  isMobile: boolean = true;
+  isTablet: boolean;
+  isPC: boolean;
 
   buttonStatus = 'Enable';
 
-  constructor() { 
+  constructor(public applicationStateService: ApplicationStateService) { 
     this.elementos = [];
     this.activated = false;
+    this.getResolution();
   }
 
   defList(){
     this.elementos = ['Tomate', 'Lechuga', 'Cebolla', 'Manzana', 'Plátano', 'Frutos Secos', 'Pan', 'Agua', 'Leche', 'Vino', 'Cerveza'];
     this.activated = true;
     this.whenClicked = [false,false];
+  }
+
+  getResolution(): void{
+    this.applicationStateService.mobileObs.subscribe((mobile) => {
+      this.isMobile = mobile;
+  })
+    this.applicationStateService.tabletObs.subscribe((tablet) => {
+      this.isTablet = tablet;
+  })
+    this.applicationStateService.pcObs.subscribe((pc) => {
+      this.isPC = pc;
+  })
   }
 
   activar(){

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
-import { Subscription } from 'rxjs';
+import { AuthService } from './services/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,26 +8,17 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy{
   title = 'lalista-ng';
-  mediasub: Subscription;
-  deviceXs: boolean;
+  /*deviceXs: boolean;
   deviceSm: boolean;
-  deviceMd: boolean;
+  deviceMd: boolean;*/
 
-  constructor(public mediaObserver:MediaObserver) { 
+  constructor(public authService: AuthService) { 
   }
   ngOnInit(): void {
 
-    this.mediasub = this.mediaObserver.media$.subscribe(
-      (result: MediaChange) => {
-        console.log(result.mqAlias);
-        this.deviceXs = result.mqAlias === 'xs' ? true : false;
-        this.deviceSm = result.mqAlias === 'sm' ? true : false;
-        this.deviceMd = result.mqAlias === 'md' ? true : false;
-      }
-    )
   }
   ngOnDestroy(): void {
-    this.mediasub.unsubscribe();
+    //this.mediasub.unsubscribe();
   }
 
   reloadPage(): void{

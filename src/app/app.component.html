@@ -1,21 +1,31 @@
 <div style="height:100%">
 <mat-toolbar style="height:100%" color="primary">
   <mat-toolbar-row class="toolbar-row">
-    <span>La Lista</span>
+    <span routerLink="/">La Lista</span>
     <span class="example-spacer"></span>
-    <button mat-button (clic)= reloadPage()><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></button>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+    <!--<button mat-button routerLink="/tasks" routerLinkActive="active">Tasks</button>
+    <button mat-button routerLink="/private" routerLinkActive="active">Private</button>-->
+    <button mat-button routerLink="/lista" routerLinkActive="active">MiLista</button>
+    <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+    <button mat-button routerLink="/signin" routerLinkActive="active">SignIn</button>
+    <button mat-button routerLink="/signup" routerLinkActive="active">SignUp</button>
+    </ng-container>
+    <ng-template #loggedIn>
+      <button mat-button (click)="authService.logout()">SignOut</button>
+    </ng-template>
+    <!--<button mat-button (clic)= reloadPage()><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></button>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>-->
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-divider></mat-divider>
-<mat-toolbar class="toolbar-mini" color="primary">
+<mat-toolbar class="toolbar-mini" color="primary" *ngIf="authService.loggedIn()">
   <mat-toolbar-row class="toolbar-row-mini">
     <span>Lista de la Compra de Almudena y Fernando</span>
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">favorite</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
 </div>
-<app-lista-compra [deviceXs]="deviceXs" [deviceSm]="deviceSm" [deviceMd]="deviceMd"></app-lista-compra>
+<!--<app-lista-compra [deviceXs]="deviceXs" [deviceSm]="deviceSm" [deviceMd]="deviceMd"></app-lista-compra>-->
 <br>
 <!--<app-material-example></app-material-example>-->
 
