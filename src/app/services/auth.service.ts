@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private URL = 'http://localhost:3000/api'
+  //private URL = 'http://localhost:3000/api';
+  private URL = 'https://lalista-ng-backend.herokuapp.com/api';
 
   constructor(private router: Router, private http: HttpClient) { }
 
